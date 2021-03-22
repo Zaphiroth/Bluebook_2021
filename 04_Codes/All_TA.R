@@ -504,6 +504,8 @@ all_chc_data_m <- all_chc_data %>%
 
 write.xlsx(all_chc_data_m, '03_Outputs/Bluebook_2020_Universe_Nation.xlsx')
 
+################################################################################
+
 
 ## chc adjustment according to VBP
 vbp_data <- read_excel("05_Internal_Review/v9/blue_book_II_5mkts_20200429.xlsx")
