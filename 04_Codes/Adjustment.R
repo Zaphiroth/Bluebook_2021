@@ -27,8 +27,8 @@ all_chc_data_adj <- all_chc_data_m %>%
   #                           TRUE ~ "Others")) %>% 
   left_join(adj.factor, by = c('Province', 'mkt' = 'Market')) %>% 
   mutate(Factor = if_else(is.na(Factor), 1, Factor), 
-         `Volume（片）` = `Volume（片）` * Factor, 
-         Value = Value * Factor) %>% 
+         `Volume（片）` = if_else(Year == '2020', `Volume（片）` * Factor, `Volume（片）`), 
+         Value = if_else(Year == '2020', Value * Factor, Value)) %>% 
   select(-Factor)
 
 write.xlsx(all_chc_data_adj, '03_Outputs/Bluebook_2020_Universe_Nation_Adj.xlsx')
